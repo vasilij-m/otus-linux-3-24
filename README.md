@@ -163,6 +163,7 @@ PING 10.0.0.2 (10.0.0.2) from 10.0.0.1 : 56(84) bytes of data.
 64 bytes from 10.0.0.2: icmp_seq=1 ttl=64 time=0.500 ms
 64 bytes from 10.0.0.2: icmp_seq=2 ttl=64 time=1.96 ms
 ```
+```
 [root@ovpn-client ~]# ip r
 default via 10.0.2.2 dev eth0 proto dhcp metric 100 
 10.0.0.1 via 172.16.10.1 dev tap0 
