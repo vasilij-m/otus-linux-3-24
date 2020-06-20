@@ -27,7 +27,7 @@
 2. Установим пакеты `openvpn`, `easy-rsa`, `iperf3`:
 ```
 [root@ovpn-server ~]# yum install -y openvpn easy-rsa iperf3
-[root@ovpn-client ~]# yum install -y openvpn easy-rsa iperf3
+[root@ovpn-client ~]# yum install -y openvpn iperf3
 ```
 
 3. Назначим дополнительный IP-адрес на loopback-интерфейс:
@@ -453,8 +453,9 @@ PING 10.0.0.1 (10.0.0.1) 56(84) bytes of data.
 
 **Проверка ДЗ**
 
-ansible в процессе...
+Выполнить `vagrant up`, после чего поднимется стенд в конфигурации site-to-site с использованием общего секретного ключа в режиме `tap`. Для изменения режима open-vpn необходимо в `./inventories/host_vars/ovpn-server.yml` и в `./inventories/host_vars/ovpn-client.yml` изменить значение переменной `stsdev` на `'tun'`, после чего выполнить плейбук `site-to-site.yml`.
 
+Для изменения конфигурации стенда на remote-access необходимо выполнить плейбук `remote-access.yml`, после чего на хосте ovpn-server поменяется `server.conf`, openvpn будет слушать на нестандартном порту 1195, а хост ovpn-client подключится к серверу с помощью конфига client.conf.
 
 
 
